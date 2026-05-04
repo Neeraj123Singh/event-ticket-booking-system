@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+a {
+  text-underline-offset: 3px;
+}

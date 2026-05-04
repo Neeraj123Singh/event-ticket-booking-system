@@ -1,0 +1,34 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalEnv": [
+    "NEXT_PUBLIC_API_URL",
+    "INTERNAL_API_URL",
+    "DATABASE_URL",
+    "TEST_DATABASE_URL",
+    "ADMIN_API_KEY",
+    "CORS_ORIGIN",
+    "PORT",
+    "PRICING_WEIGHT_TIME",
+    "PRICING_WEIGHT_DEMAND",
+    "PRICING_WEIGHT_INVENTORY"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["NEXT_PUBLIC_API_URL", "INTERNAL_API_URL"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
